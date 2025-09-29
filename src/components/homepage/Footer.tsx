@@ -51,11 +51,11 @@ export default function Footer() {
             </button>
 
             <button
-              onClick={() => handlePhoneClick('0982546476')}
+              onClick={() => handlePhoneClick('0982512055')}
               className="flex items-center gap-2 hover:text-gray-300"
             >
               <FaPhoneAlt />
-              098-254-6476
+              098-2512055
             </button>
           </div>
         </div>
