@@ -68,7 +68,7 @@ export default function ContactFloatingButton() {
             </button>
             <h2 className="text-xl font-semibold mb-2">เบอร์โทรติดต่อ</h2>
             <p className="text-lg text-pink-600 font-bold mb-2">084-555-2781</p>
-            <p className="text-lg text-pink-600 font-bold mb-4">098-254-6476</p>
+            <p className="text-lg text-pink-600 font-bold mb-4">098-2512055</p>
             <a
               href="tel:0845552781"
               className="inline-block bg-green-500 text-white px-4 py-2 rounded-full hover:bg-green-600 transition mb-2"
@@ -80,7 +80,7 @@ export default function ContactFloatingButton() {
               href="tel:0982546476"
               className="inline-block bg-green-500 text-white px-4 py-2 rounded-full hover:bg-green-600 transition"
             >
-              โทร 098-254-6476
+              โทร 098-2512055
             </a>
           </div>
         </div>
