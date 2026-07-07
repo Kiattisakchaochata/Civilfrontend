@@ -28,9 +28,7 @@ a {
 }
 
 /* ✅ Optional: Force font color in menu zone */
-nav a {
-  color: white !important;
-}
+
 /* ซ่อน scrollbar */
 html, body {
   overflow-x: hidden;
