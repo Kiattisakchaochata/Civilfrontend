@@ -8,14 +8,13 @@
     "start": "next start",
     "tailwind:init": "tailwindcss init -p",
     "vercel-build": "next build",
-    "postbuild": "next-sitemap",
+    "postbuild": "echo skip sitemap",
     "lint": "next lint"
   },
   "dependencies": {
     "@headlessui/react": "^2.2.7",
     "lucide-react": "^0.535.0",
     "next": "^15.4.5",
-    "next-sitemap": "^4.2.3",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "react-icons": "^5.5.0",

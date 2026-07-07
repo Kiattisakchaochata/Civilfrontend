@@ -1,68 +1,59 @@
 'use client';
-import { useLanguage } from '@/contexts/LanguageContext';
-export default function AboutUsSection() {
-  const { dict } = useLanguage()
-  return (
-    <section className="bg-white">
-      {/* Header */}
-      <div className="bg-[#1F2560]/5 border-b border-[#1F2560]/10">
-        <div className="max-w-5xl mx-auto px-6 py-12">
-          <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-[#1F2560] text-center">
-            {dict.about.title}
-          </h2>
 
-          <p className="mt-3 text-center text-gray-600">
+import { useLanguage } from '@/contexts/LanguageContext';
+
+export default function AboutClient() {
+  const { dict } = useLanguage();
+
+  return (
+    <main className="min-h-screen bg-white">
+      <div className="bg-[#1F2560]/5 border-b border-[#1F2560]/10">
+        <div className="max-w-5xl mx-auto px-4 py-10">
+          <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight text-[#1F2560]">
+            {dict.about.title}
+          </h1>
+          <p className="mt-3 text-gray-600">
             {dict.about.subtitle}
           </p>
         </div>
       </div>
 
-      {/* Content */}
-      <div className="max-w-5xl mx-auto px-6 py-12 space-y-10">
-        {/* Company names */}
-        <div className="rounded-2xl border border-gray-200 shadow-sm p-6 md:p-8 text-center">
-          <p className="text-2xl md:text-3xl font-extrabold tracking-tight text-[#1F2560]">
-            {dict.about.company1}
-          </p>
-          <p className="text-2xl md:text-3xl font-extrabold tracking-tight text-[#1F2560] mt-1">
-            {dict.about.company2}
-          </p>
+      <section className="max-w-5xl mx-auto px-4 py-10 space-y-10">
+        <div className="rounded-2xl border border-gray-200 p-6 md:p-8 shadow-sm">
+          <div className="text-center">
+            <p className="text-2xl md:text-3xl font-extrabold tracking-tight text-[#1F2560]">
+              {dict.about.company1}
+            </p>
+            <p className="text-2xl md:text-3xl font-extrabold tracking-tight text-[#1F2560] mt-1">
+              {dict.about.company2}
+            </p>
 
-          <div className="mt-5 inline-flex items-center gap-2 rounded-full bg-[#FFF6D6] px-4 py-2 border border-amber-200 text-[#1F2560]">
-            <span className="inline-block h-2 w-2 rounded-full bg-[#F9C525]" />
-            <span className="font-semibold">
-              {dict.about.achievement.prefix} <span className="font-extrabold">{dict.about.achievement.value}</span>
-            </span>
+            <p className="mt-5 text-gray-700 leading-relaxed">
+              {dict.about.achievement.prefix}{' '}
+              <span className="font-semibold">{dict.about.achievement.value}</span>
+            </p>
           </div>
         </div>
 
-        {/* Contact card */}
         <div className="rounded-2xl bg-gray-50 border border-gray-200 p-6 md:p-8 shadow-sm">
           <h3 className="text-xl font-bold text-[#1F2560] mb-6">
             {dict.about.contactTitle}
           </h3>
 
           <div className="grid md:grid-cols-2 gap-8">
-            {/* Left: address & channels */}
-            <dl className="space-y-5">
+            <dl className="space-y-4">
               <div className="flex items-start gap-3">
                 <span className="mt-1 inline-block h-2 w-2 rounded-full bg-[#F9C525]" />
                 <div>
-                  <dt className="text-sm text-gray-500">
-                    {dict.about.headOfficeLabel}
-                  </dt>
-                  <dd className="mt-1 text-gray-800">
-                    {dict.about.address}
-                  </dd>
+                  <dt className="text-sm text-gray-500">{dict.about.headOfficeLabel}</dt>
+                  <dd className="mt-1 text-gray-800">{dict.about.address}</dd>
                 </div>
               </div>
 
               <div className="flex items-start gap-3">
                 <span className="mt-1 inline-block h-2 w-2 rounded-full bg-[#F9C525]" />
                 <div>
-                  <dt className="text-sm text-gray-500">
-                    {dict.about.phoneLabel}
-                  </dt>
+                  <dt className="text-sm text-gray-500">{dict.about.phoneLabel}</dt>
                   <dd className="mt-1 text-gray-800 space-x-2">
                     <a href="tel:0845552781" className="font-medium hover:underline text-[#1F2560]">084-555-2781</a>
                     <span className="text-gray-400">/</span>
@@ -74,21 +65,15 @@ export default function AboutUsSection() {
               <div className="flex items-start gap-3">
                 <span className="mt-1 inline-block h-2 w-2 rounded-full bg-[#F9C525]" />
                 <div>
-                  <dt className="text-sm text-gray-500">
-                    {dict.about.lineLabel}
-                  </dt>
-                  <dd className="mt-1 text-gray-800">
-                    {dict.about.lineId}
-                  </dd>
+                  <dt className="text-sm text-gray-500">{dict.about.lineLabel}</dt>
+                  <dd className="mt-1 text-gray-800">{dict.about.lineId}</dd>
                 </div>
               </div>
 
               <div className="flex items-start gap-3">
                 <span className="mt-1 inline-block h-2 w-2 rounded-full bg-[#F9C525]" />
                 <div>
-                  <dt className="text-sm text-gray-500">
-                    {dict.about.emailLabel}
-                  </dt>
+                  <dt className="text-sm text-gray-500">{dict.about.emailLabel}</dt>
                   <dd className="mt-1">
                     <a
                       href={`mailto:${dict.about.email}`}
@@ -101,11 +86,11 @@ export default function AboutUsSection() {
               </div>
             </dl>
 
-            {/* Right: tax ids + CTA */}
             <div className="rounded-xl bg-white border border-gray-200 p-5">
               <h4 className="font-semibold text-[#1F2560] mb-3">
                 {dict.about.taxTitle}
               </h4>
+
               <ul className="space-y-3 text-gray-800">
                 {dict.about.taxItems.map((item) => (
                   <li key={item.id} className="flex items-start gap-3">
@@ -128,20 +113,12 @@ export default function AboutUsSection() {
                   <span className="bg-gradient-to-r from-[#F9C525] to-amber-400 bg-clip-text text-transparent group-hover:text-white group-hover:bg-none">
                     {dict.about.cta}
                   </span>
-                  <svg width="18" height="18" viewBox="0 0 24 24" className="text-[#1F2560] group-hover:text-white">
-                    <path fill="currentColor" d="M14 3h7v7h-2V6.41l-9.29 9.3l-1.42-1.42l9.3-9.29H14zM5 5h6v2H7v10h10v-4h2v6H5z" />
-                  </svg>
                 </a>
               </div>
             </div>
           </div>
         </div>
-
-        {/* Optional small note */}
-        <p className="text-center text-sm text-gray-500">
-          {dict.about.note}
-        </p>
-      </div>
-    </section>
+      </section>
+    </main>
   );
 }

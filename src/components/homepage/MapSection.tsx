@@ -1,10 +1,14 @@
 'use client';
 
+import { useLanguage } from '@/contexts/LanguageContext';
+
 export default function MapSection() {
+  const { dict } = useLanguage();
+
   return (
     <section className="py-12 px-4 bg-gray-50">
       <h2 className="text-3xl font-bold text-center mb-6 text-[#1F2560]">
-        แผนที่บริษัท
+        {dict.map.title}
       </h2>
 
       <div className="w-full h-[400px] max-w-7xl mx-auto">
@@ -16,7 +20,7 @@ export default function MapSection() {
           loading="lazy"
           allowFullScreen
           referrerPolicy="no-referrer-when-downgrade"
-        ></iframe>
+        />
       </div>
     </section>
   );

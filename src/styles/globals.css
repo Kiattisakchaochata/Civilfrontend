@@ -23,7 +23,7 @@ a {
 
 /* ✅ Force reset link color */
 a {
-  color: inherit !important;
+  color: inherit;
   text-decoration: none;
 }
 

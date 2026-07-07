@@ -1,10 +1,10 @@
 /** @type {import('next-sitemap').IConfig} */
 module.exports = {
-  siteUrl: 'https://www.civilproducts.co.th', // 🔁 เปลี่ยนเป็น domain จริง
+  siteUrl: 'https://www.civilproductsthailand.com',  // ✅ ใช้ www เป็นหลัก
   generateRobotsTxt: true,
   changefreq: 'weekly',
   priority: 0.7,
-  exclude: ['/admin'], // ถ้ามีหน้าแอดมิน
+  exclude: ['/admin'],
   robotsTxtOptions: {
     policies: [
       {
@@ -12,6 +12,9 @@ module.exports = {
         allow: '/',
         disallow: ['/admin'],
       },
+    ],
+    additionalSitemaps: [
+      'https://www.civilproductsthailand.com/sitemap-0.xml',
     ],
   },
 }

@@ -2,6 +2,7 @@
 
 import Image from 'next/image'
 import { useEffect, useRef } from 'react'
+import { useLanguage } from '@/contexts/LanguageContext'
 
 type ServiceItem = {
   title: string
@@ -14,7 +15,6 @@ type ServiceModalProps = {
   onClose: () => void
 }
 
-/** แปลงข้อความเป็นพารากราฟ + บูลเล็ต */
 function RichText({ text }: { text: string }) {
   const lines = text.split('\n').map((l) => l.trim())
   const blocks: React.ReactNode[] = []
@@ -52,23 +52,26 @@ function RichText({ text }: { text: string }) {
       )
     }
   })
+
   flushBullets()
+
   return <div className="space-y-3">{blocks}</div>
 }
 
 export default function ServiceModal({ service, onClose }: ServiceModalProps) {
+  const { dict } = useLanguage()
   const panelRef = useRef<HTMLDivElement>(null)
 
-  // ปิดด้วยปุ่ม Esc
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => e.key === 'Escape' && onClose()
     window.addEventListener('keydown', onKey)
     return () => window.removeEventListener('keydown', onKey)
   }, [onClose])
 
-  // คลิกนอกกล่องเพื่อปิด
   const onBackdropClick = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (panelRef.current && !panelRef.current.contains(e.target as Node)) onClose()
+    if (panelRef.current && !panelRef.current.contains(e.target as Node)) {
+      onClose()
+    }
   }
 
   return (
@@ -80,13 +83,9 @@ export default function ServiceModal({ service, onClose }: ServiceModalProps) {
     >
       <div
         ref={panelRef}
-        className="
-          relative w-full max-w-5xl   /* ✅ ปรับขนาดกว้างขึ้น */
-          overflow-hidden rounded-2xl bg-white shadow-2xl ring-1 ring-black/5
-        "
+        className="relative w-full max-w-5xl overflow-hidden rounded-2xl bg-white shadow-2xl ring-1 ring-black/5"
       >
-        {/* รูป: สูงขึ้นเล็กน้อย */}
-        <div className="relative h-72 md:h-80 w-full"> {/* ✅ ปรับความสูงรูป */}
+        <div className="relative h-72 md:h-80 w-full">
           <Image
             src={service.image || '/images/fallback.png'}
             alt={service.title}
@@ -97,8 +96,7 @@ export default function ServiceModal({ service, onClose }: ServiceModalProps) {
           />
         </div>
 
-        {/* เนื้อหา: พื้นที่เลื่อน ถ้าข้อความยาว */}
-        <div className="max-h-[65vh] overflow-y-auto p-8"> {/* ✅ ปรับ max-h ให้สูงขึ้น */}
+        <div className="max-h-[65vh] overflow-y-auto p-8">
           <h3 className="mb-4 text-2xl md:text-3xl font-extrabold tracking-tight text-amber-500">
             {service.title}
           </h3>
@@ -106,13 +104,12 @@ export default function ServiceModal({ service, onClose }: ServiceModalProps) {
           <RichText text={service.fullText} />
         </div>
 
-        {/* ปุ่มปิดด้านล่าง */}
         <div className="flex justify-end gap-3 border-t bg-white/60 p-4">
           <button
             onClick={onClose}
             className="rounded-xl border border-slate-200 bg-white px-5 py-2 text-sm font-medium text-slate-700 hover:bg-slate-50"
           >
-            ปิด
+            {dict.close}
           </button>
         </div>
       </div>

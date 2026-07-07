@@ -3,9 +3,11 @@
 import { useRouter } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import { FaHome, FaArrowUp } from 'react-icons/fa'
+import { useLanguage } from '@/contexts/LanguageContext'
 
 export default function UtilityFloatingButtons() {
   const router = useRouter()
+  const { dict } = useLanguage()
   const [showScrollTop, setShowScrollTop] = useState(false)
 
   useEffect(() => {
@@ -26,7 +28,7 @@ export default function UtilityFloatingButtons() {
   const scrollToTop = () => {
     document.documentElement.scrollTo({
       top: 0,
-      behavior: 'smooth', // ✅ Smooth scroll
+      behavior: 'smooth',
     })
   }
 
@@ -35,7 +37,7 @@ export default function UtilityFloatingButtons() {
       <button
         onClick={goHome}
         className="bg-[#F9C525] hover:bg-yellow-400 text-white w-12 h-12 rounded-full shadow-lg flex items-center justify-center text-xl"
-        title="กลับหน้าแรก"
+        title={dict.utilityFloating.home}
       >
         <FaHome />
       </button>
@@ -44,7 +46,7 @@ export default function UtilityFloatingButtons() {
         <button
           onClick={scrollToTop}
           className="bg-[#1F2560] hover:bg-[#333d85] text-white w-12 h-12 rounded-full shadow-lg flex items-center justify-center text-xl"
-          title="ขึ้นด้านบน"
+          title={dict.utilityFloating.scrollTop}
         >
           <FaArrowUp />
         </button>
